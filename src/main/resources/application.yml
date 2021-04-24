@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: active-cookie-qc
+  main:
+    web-application-type: none
+    banner-mode: "off"
+  http:
+    converters:
+      preferred-json-mapper: gson  
+logging:
+  level:
+    ROOT: info
+  pattern:
+    console: "%msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  file: logs/application.log
+run-swagger: false
