@@ -1,30 +1,35 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
-
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 version '1.0.0'
 
 sourceCompatibility = 1.8
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    
-    compileOnly "org.projectlombok:lombok:${lombok_version}"
-    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
 
-    compile "info.picocli:picocli-spring-boot-starter:${picocli_version}"    
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
 
-    testCompile "org.springframework.boot:spring-boot-starter-test"
-    testCompile "junit:junit:${junit_version}"
-    testCompile "com.github.stefanbirkner:system-rules:${systemrules_version}"
+    implementation "info.picocli:picocli-spring-boot-starter:${picocli_version}"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "junit:junit:${junit_version}"
 }
 
+test {
+    useJUnitPlatform()
+}
 

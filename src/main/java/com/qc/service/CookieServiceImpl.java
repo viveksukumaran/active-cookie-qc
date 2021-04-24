@@ -20,7 +20,7 @@ public class CookieServiceImpl implements CookieService {
 
     @Override
     public Set<Cookie> findMostActiveCookies(final List<CookieInfo> cookieInfoList, final LocalDate date) {
-        if (cookieInfoList == null) {
+        if (cookieInfoList == null || date == null) {
             return emptySet();
         }
         final Map<Cookie, Long> cookieCount = cookieInfoList.stream()
