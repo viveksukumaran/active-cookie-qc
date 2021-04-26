@@ -13,12 +13,11 @@ import java.util.Set;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
-import org.junit.rules.ExpectedException;
 
+/**
+ * Testing the cookie service
+ */
 public class CookieServiceImplTest {
-
-    @Rule
-    public final ExpectedException thrown = ExpectedException.none();
 
     @Rule
     public final ErrorCollector collector = new ErrorCollector();
